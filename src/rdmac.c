@@ -62,7 +62,7 @@ uchar read_MAC_reg(uint reg_addr)
    return spi_buffer[4];
 }
    
-uint main(void)
+int main(void)
 {
    uint fd;
    uchar buffer[100], index;

@@ -98,7 +98,7 @@ uchar write_MAC_reg(uint reg_addr)
 }
    
 
-uint main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
   uint fd, i, c;
   uchar index;
@@ -131,13 +131,13 @@ uint main(int argc, char *argv[])
   }
   printf("%02X\n",buffer[5]);
   
-  printf("OK (y/n)?");
-  c = getc(stdin);
+  //printf("OK (y/n)?");
+  //c = getc(stdin);
 
-  if (c != 'y') {
-    printf("MAC addr write ABORTED\n");
-    return -1;
-  }
+  //if (c != 'y') {
+  //  printf("MAC addr write ABORTED\n");
+  //  return -1;
+  //}
 
 // Init wiringPi bitwise interface.
 

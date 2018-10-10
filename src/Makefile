@@ -11,3 +11,8 @@ all: ../bin/wrmac ../bin/rdmac ../bin/pimac
 
 clean:
 	rm -f ../bin/*
+
+install:
+	sudo cp -f ../bin/* /usr/bin/
+	sudo systemctl enable spihunter
+	sudo systemctl start spihunter

@@ -14,5 +14,5 @@ clean:
 
 install:
 	sudo cp -f ../bin/* /usr/bin/
-	sudo systemctl enable spihunter
+	sudo systemctl enable /usr/bin/spihunter.service
 	sudo systemctl start spihunter

@@ -63,7 +63,6 @@ uchar read_MAC_reg(uint reg_addr)
 int main(void)
 {
    uint fd;
-   uchar buffer[100], index;
 
 // Init wiringPi bitwise interface.
 

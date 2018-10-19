@@ -101,7 +101,7 @@ while (1) {
    buffer[0] = read_MAC_reg(0);
    buffer[1] = read_MAC_reg(1);
    buffer[2] = read_MAC_reg(2);
-   buffer[3] = read_MAC_reg(4);
+   buffer[3] = read_MAC_reg(3);
    buffer[4] = read_MAC_reg(4);
    buffer[5] = read_MAC_reg(5);
 

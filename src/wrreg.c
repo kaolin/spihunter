@@ -38,24 +38,8 @@ int main(int argc, char *argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	/*
-	regval = read_reg(regadr);
-	printf("Reg 0x%04X value is now:  0x%02X   ", regadr, regval);
-	printf("0b%s%s\n", bit_rep[regval >> 4], bit_rep[regval & 0x0F]);
-	printf("Reg 0x%04X value will be: 0x%02X   ", regadr, newregval);
-	printf("0b%s%s\n", bit_rep[newregval >> 4], bit_rep[newregval & 0x0F]);
-
- 	printf("OK (y/n)?");
-	c = getc(stdin);
-	if (c != 'y') {
-		printf("reg write ABORTED\n");
-		exit(EXIT_FAILURE);
-	}
-	*/
-
-	printf("%d registers\n",reg_valN);
-	spi_write_reg(regadr, reg_val, reg_valN);
-
-	spi_teardown();
+	write_reg(regadr, newregval);
+	
+	digitalWrite(spi_mux_sel, LOW);
 	return EXIT_SUCCESS;
 }

@@ -1,4 +1,10 @@
-all: bin/wrmac bin/rdmac bin/pimac
+all: bin/wrmac bin/rdmac bin/pimac bin/rdreg bin/wrreg
+
+bin/rdreg:
+	g++ src/rdreg.c -o bin/rdreg -lwiringPi
+
+bin/wrreg:
+	g++ src/wrreg.c -o bin/wrreg -lwiringPi
 
 bin/rdmac:
 	g++ src/rdmac.c -o bin/rdmac -lwiringPi

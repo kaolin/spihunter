@@ -116,6 +116,7 @@ while (1) {
   index++;
   printf("%02X\n",buffer[5]);
 
+  digitalWrite(spi_mux_sel, HIGH)
   return 0;
 }
 

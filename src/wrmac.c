@@ -181,6 +181,7 @@ int main(int argc, char *argv[])
   index++;
   printf("%02X\n",buffer[5]);
 
+  digitalWrite(spi_mux_sel, LOW);
   return 0;
 }
 

@@ -37,7 +37,7 @@ static const int CHANNEL = 1;
 uchar spi_buffer[10];
 uint buffer[100];
 
-#define DIAG
+#undef DIAG
 
 #define spi_mux_sel	24
 #define spi_cs1_n	7

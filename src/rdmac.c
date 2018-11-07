@@ -3,7 +3,7 @@
 //  read MAC address of KSZ9896 switch & write it to console
 //  b.r.koball
 //  k.i.fire
-//  V2.0
+//  V2.0.1
 //  2018-11-07
 //
 // compile with: gcc rdmac.c reg.c -lwiringPi 
@@ -11,8 +11,6 @@
 ////////////////////////////////////////////////////////////
 
 #include "reg.h"
-#include <wiringPi.h>
-#include <wiringPiSPI.h>
 #include <stdio.h>
 
 int main(void) {
@@ -25,19 +23,12 @@ int main(void) {
   spi_read_reg(0x0302, buffer, 6);
   spi_teardown();
 
-
-// write buffer contents to console
-
+  // write buffer contents to console
   printf("Switch MAC addr = ");
-  uint index;
-  for (index=0; index<5; index++)
-{
-    printf("%02X:",buffer[index]);
-}
-  index++;
-  printf("%02X\n",buffer[5]);
+  for (uint index=0; index<6; index++) {
+    printf("%02X%c",buffer[index],(index==5)?'\n':':');
+  }
 
-  digitalWrite(spi_mux_sel, HIGH);
-  return 0;
+  return EXIT_SUCCESS;
 }
 

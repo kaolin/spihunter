@@ -33,9 +33,9 @@ int main(int argc, char *argv[]) {
 	}
 
 	// Init wiringPi bitwise interface.
-	if(spi_setup() != EXIT_FAILURE){ // initialize wiringPi failed
+	if(spi_setup() != EXIT_SUCCESS){ // initialize wiringPi failed
 		fprintf(stderr, "setup wiringPi failed !");
-		exit(EXIT_FAILURE);
+		return EXIT_FAILURE;
 	}
 
 	/*

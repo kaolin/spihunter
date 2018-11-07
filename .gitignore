@@ -1,1 +1,10 @@
 *.sw?
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+debian/spihunter.debhelper.log
+debian/spihunter.postinst.debhelper
+debian/spihunter.postrm.debhelper
+debian/spihunter.prerm.debhelper
+debian/spihunter.substvars
+debian/spihunter/

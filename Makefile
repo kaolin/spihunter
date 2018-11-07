@@ -6,8 +6,8 @@ bin/rdreg: src/rdreg.c src/reg.c
 bin/wrreg: src/wrreg.c src/reg.c
 	g++ src/wrreg.c src/reg.c -o bin/wrreg -lwiringPi
 
-bin/rdmac: src/rdmac.c
-	g++ src/rdmac.c -o bin/rdmac -lwiringPi
+bin/rdmac: src/rdmac.c src/reg.c
+	g++ src/rdmac.c src/reg.c -o bin/rdmac -lwiringPi
 
 bin/dpmib: src/dpmib.c
 	g++ src/dpmib.c -o bin/dpmib -lwiringPi

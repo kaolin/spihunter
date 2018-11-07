@@ -20,13 +20,17 @@ int main(int argc, char *argv[])
 {
 	uint fd, i, adr, regval, buf[100], spiadr, spicnt;
 
-	if (argc != 3) {
+	if (argc == 2) {
+		sscanf(argv[1], "%x", &spiadr);
+		spicnt = 1;
+	} else if (argc != 3) {
                 fprintf(stderr, "Usage: %s <reg starting addr> <reg count>\n", argv[0]);
                 return EXIT_FAILURE;
+	} else {
+		sscanf(argv[1], "%x", &spiadr);
+		sscanf(argv[2], "%d", &spicnt);
 	}
 
-	sscanf(argv[1], "%x", &spiadr);
-	sscanf(argv[2], "%d", &spicnt);
 	printf("reg addr = %x; reg cnt = %x\n", spiadr, spicnt);
 
 	if (spicnt == 0) {
@@ -34,7 +38,7 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
-	if (!spi_setup()) {
+	if (spi_setup() != EXIT_SUCCESS) {
 		fprintf(stderr, "unable to setup spi\n");
 		return EXIT_FAILURE;
 	}

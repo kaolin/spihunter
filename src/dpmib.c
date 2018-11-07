@@ -45,7 +45,6 @@ int rd_mib(uint portn, uint cntrn) {
 	cntrval = (cntrval << 8) | retbuf[4];
 
 	printf("port %d  MIB cntr 0x%02x  ovfl = %c  value = %ld\n", portn, cntrn, overflow?'y':'n', cntrval);
-
 }
 
 int main(int argc, char *argv[])
@@ -57,6 +56,7 @@ int main(int argc, char *argv[])
                 exit(EXIT_FAILURE);
 	}
 
+	spiadr = 0;
 	sscanf(argv[1], "%d", &portn);
 
 	printf("port addr = %d\n",portn);
@@ -65,7 +65,6 @@ int main(int argc, char *argv[])
                 exit(EXIT_FAILURE);
 	}
 
-// Init wiringPi bitwise interface.
 	if(spi_setup() != EXIT_SUCCESS) {
 		fprintf(stderr, "setup wiringPi failed !");
 		return EXIT_FAILURE;

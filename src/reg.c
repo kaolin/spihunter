@@ -10,11 +10,6 @@
 
 #include "reg.h"
 
-//#ifdef HELP
-#include <stdio.h>
-#include <string.h>
-//#endif
-
 const char *bit_rep[16] = {
     [ 0] = "0000", [ 1] = "0001", [ 2] = "0010", [ 3] = "0011",
     [ 4] = "0100", [ 5] = "0101", [ 6] = "0110", [ 7] = "0111",
@@ -56,19 +51,11 @@ void spi_execute(uchar command, uint reg_adr, uint* reg_val, uint reg_valN)
 
 #ifdef HELP
 	printf("returned\n");
-	if (reg_valN == 0) {
-		printf("0x%02X\n",spi_buffer[4]);
-	} else
 	for (int i=0; i< spi_bufferN;i++) {
-		printf("0x%02X\n",spi_buffer[4+i]);
+		printf("0x%02X\n",spi_buffer[i]);
 	}
 #endif
-	if (reg_valN == 0) {
-		reg_val[0] = spi_buffer[4];
-	} else
-	for (int i=0; i< reg_valN;i++) {
-		reg_val[i] = spi_buffer[4+i];
-	}
+
 }
 
 void spi_write_reg(uint reg_adr, uint* reg_val, uint reg_valN) {

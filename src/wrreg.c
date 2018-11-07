@@ -38,8 +38,9 @@ int main(int argc, char *argv[]) {
 		return EXIT_FAILURE;
 	}
 
-	write_reg(regadr, newregval);
-	
-	digitalWrite(spi_mux_sel, LOW);
+	printf("%d registers\n",reg_valN);
+	spi_write_reg(regadr, reg_val, reg_valN);
+
+	spi_teardown();
 	return EXIT_SUCCESS;
 }

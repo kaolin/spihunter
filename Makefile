@@ -29,8 +29,3 @@ bin/wrmac: src/wrmac.c
 
 bin/pimac: src/pimac.c
 	g++ src/pimac.c -o bin/pimac
-
-clean:
-	rm -f bin/*
-
-.PHONY: clean all

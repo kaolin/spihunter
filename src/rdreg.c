@@ -18,7 +18,7 @@
 
 int main(int argc, char *argv[])
 {
-	uint fd, i, adr, regval, buf[100], spiadr, spicnt;
+	uint fd, i, regval, spiadr, spicnt;
 
 	if (argc == 2) {
 		sscanf(argv[1], "%x", &spiadr);
@@ -43,14 +43,12 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
-	// send read command to switch and read reg contents
-	// do it "spicnt" times
-	adr = spiadr;
-	for(i = spicnt; i!=0; i--) {
-		regval = spi_read_reg(adr);
-		printf("reg 0x%02x = 0x%02x  0b", adr, regval);
-		printf("%s%s\n", bit_rep[regval >> 4], bit_rep[regval & 0x0F]);
-		adr++;
+	// read spicnt bytes
+	uint buf[spicnt];
+	spi_read_reg(spiadr, buf, spicnt);
+	for(i = 0; i<spicnt; i++) {
+		printf("reg 0x%02x = 0x%02x  0b", spiadr+i, buf[i]);
+		printf("%s%s\n", bit_rep[buf[i] >> 4], bit_rep[buf[i] & 0x0F]);
 	}	
 
 	spi_teardown();

@@ -9,8 +9,8 @@ bin/wrreg: src/wrreg.c src/reg.c
 bin/rdmac: src/rdmac.c src/reg.c
 	g++ src/rdmac.c src/reg.c -o bin/rdmac -lwiringPi
 
-bin/dpmib: src/dpmib.c
-	g++ src/dpmib.c -o bin/dpmib -lwiringPi
+bin/dpmib: src/dpmib.c src/reg.c
+	g++ src/dpmib.c src/reg.c -o bin/dpmib -lwiringPi
 
 bin/rdmib: src/rdmib.c
 	g++ src/rdmib.c -o bin/rdmib -lwiringPi

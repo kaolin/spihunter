@@ -19,7 +19,6 @@
 int main(int argc, char *argv[])
 {
 	uint fd, i, regval, spiadr, spicnt;
-	uint fd, i, adr, regval, buf[100], spiadr, spicnt;
 
 	if (argc == 2) {
 		sscanf(argv[1], "%x", &spiadr);
